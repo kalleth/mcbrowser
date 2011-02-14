@@ -297,8 +297,8 @@ public class MCBrowserView extends FrameView {
                 }
             } else if (radioOutputGroup.isSelected(radioOutputRuby.getModel())) {
                 Runtime rt = Runtime.getRuntime();
-                String folderPath = new File("").getAbsolutePath();
-                String scriptPath = folderPath + "\\memcache-getvalue.rb";
+                String folderPath = System.getProperty("user.dir");
+                String scriptPath = folderPath + "/memcache-getvalue.rb";
                 String appPath = "jruby " + scriptPath + " " + tbServerIP.getText() + ":" + tbServerPort.getText() + " " + key;
                 try {
                     Process p = rt.exec(appPath);
